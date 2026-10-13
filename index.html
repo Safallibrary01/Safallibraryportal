@@ -3,380 +3,707 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safal Library - Bansdih</title>
+    <title>My Safal Profile</title>
     
-    <!-- App Icons / Favicon -->
-    <link rel="icon" type="image/jpeg" href="logo.png">
-    <link rel="apple-touch-icon" href="logo.png">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BHFNMN8P1C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    <script src="https://cdn.tailwindcss.com"></script>
+      gtag('config', 'G-BHFNMN8P1C');
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
-    
+    <script src="https://unpkg.com/html5-qrcode"></script>
     <style>
-        body { font-family: 'Outfit', sans-serif; scroll-behavior: smooth; }
-        .hero-bg { 
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-        .feature-card:hover { transform: translateY(-5px); }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800;900&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: linear-gradient(-45deg, #e0f2fe, #f8fafc, #dbeafe, #bae6fd); background-size: 400% 400%; animation: gradientBG 6s ease infinite; min-height: 100vh; overflow-x: hidden; }
+        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .book-icon { position: absolute; color: rgba(37, 99, 235, 0.15); font-size: 4rem; animation: floatUp 6s linear infinite; pointer-events: none; }
+        @keyframes floatUp { 0% { transform: translateY(100vh) rotate(0deg); opacity: 0; } 10% { opacity: 1; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
+        .glass-card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); border-radius: 2rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.6); }
+        .digital-id { background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); }
+        .scanner-overlay { box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.8); }
+        .hidden { display: none !important; }
+        .modal-pop { animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        @keyframes popIn { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
-
-    <nav class="bg-white/90 backdrop-blur-md fixed w-full z-50 border-b border-slate-200">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <img src="logo.png" alt="Safal Library Logo" class="w-10 h-10 rounded-full shadow-lg border-2 border-white object-cover bg-white">
-                <span class="text-xl font-black text-slate-800 tracking-tight">SAFAL<span class="text-blue-600">LIBRARY</span></span>
-            </div>
-            
-            <div class="hidden md:flex gap-8 font-bold text-sm text-slate-500">
-                <a href="#home" class="hover:text-blue-600 transition">Home</a>
-                <a href="#features" class="hover:text-blue-600 transition">Facilities</a>
-                <a href="#smart" class="hover:text-blue-600 transition">Smart App</a>
-                <a href="#pricing" class="hover:text-blue-600 transition">Plans</a>
-            </div>
-
-            <div class="flex items-center gap-3">
-                <button onclick="toggleModal('registerModal')" class="bg-slate-900 text-white px-5 py-2 rounded-full font-bold text-sm hover:bg-slate-800 transition shadow-lg">
-                    Join Now
-                </button>
-                <a href="https://safallibrary01.github.io/safallibrary/" target="_blank" class="bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-sm hover:bg-blue-700 transition shadow-lg flex items-center gap-2">
-                    <i class="fa-solid fa-user"></i> Login
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <section id="home" class="hero-bg h-screen flex items-center justify-center text-center px-4 pt-16">
-        <div class="max-w-3xl">
-            <span class="bg-blue-600/20 text-blue-300 border border-blue-500/30 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block backdrop-blur-sm">
-                Bansdih's Best Self Study Zone
-            </span>
-            <h1 class="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
-                Focus Better.<br> Achieve <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Faster.</span>
-            </h1>
-            <p class="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-                A premium, silent, and tech-enabled co-working space designed for serious aspirants. 
-                Equipped with high-speed Wi-Fi, AC, and ergonomic seating.
-            </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#pricing" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition shadow-xl shadow-blue-900/50">
-                    View Plans
-                </a>
-                <a href="#contact" class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition">
-                    <i class="fa-solid fa-location-dot mr-2"></i> Locate Us
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="features" class="py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-black text-slate-800 mb-4">Premium Facilities</h2>
-                <p class="text-slate-500 max-w-xl mx-auto">We provide everything you need to study without distractions.</p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="feature-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center transition duration-300">
-                    <div class="w-14 h-14 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 text-2xl mx-auto mb-4">
-                        <i class="fa-solid fa-wifi"></i>
-                    </div>
-                    <h3 class="font-bold text-slate-700">5G Wi-Fi</h3>
-                    <p class="text-xs text-slate-400 mt-2">High-speed fiber net for uninterrupted online classes.</p>
-                </div>
-                <div class="feature-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center transition duration-300">
-                    <div class="w-14 h-14 bg-cyan-50 rounded-full flex items-center justify-center text-cyan-600 text-2xl mx-auto mb-4">
-                        <i class="fa-solid fa-snowflake"></i>
-                    </div>
-                    <h3 class="font-bold text-slate-700">Fully AC</h3>
-                    <p class="text-xs text-slate-400 mt-2">Climate-controlled environment for maximum comfort.</p>
-                </div>
-                <div class="feature-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center transition duration-300">
-                    <div class="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center text-green-600 text-2xl mx-auto mb-4">
-                        <i class="fa-solid fa-bolt"></i>
-                    </div>
-                    <h3 class="font-bold text-slate-700">Power Backup</h3>
-                    <p class="text-xs text-slate-400 mt-2">24/7 Inverter support. Never let power cuts stop you.</p>
-                </div>
-                <div class="feature-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center transition duration-300">
-                    <div class="w-14 h-14 bg-orange-50 rounded-full flex items-center justify-center text-orange-600 text-2xl mx-auto mb-4">
-                        <i class="fa-solid fa-glass-water"></i>
-                    </div>
-                    <h3 class="font-bold text-slate-700">RO Water</h3>
-                    <p class="text-xs text-slate-400 mt-2">Chilled & Clean drinking water available.</p>
-                </div>
-                 <div class="feature-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center transition duration-300">
-                    <div class="w-14 h-14 bg-purple-50 rounded-full flex items-center justify-center text-purple-600 text-2xl mx-auto mb-4">
-                        <i class="fa-solid fa-chair"></i>
-                    </div>
-                    <h3 class="font-bold text-slate-700">Reserved Seat</h3>
-                    <p class="text-xs text-slate-400 mt-2">Your personal desk. No daily hassle of finding a spot.</p>
-                </div>
-                 <div class="feature-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center transition duration-300">
-                    <div class="w-14 h-14 bg-red-50 rounded-full flex items-center justify-center text-red-600 text-2xl mx-auto mb-4">
-                        <i class="fa-solid fa-video"></i>
-                    </div>
-                    <h3 class="font-bold text-slate-700">CCTV Secure</h3>
-                    <p class="text-xs text-slate-400 mt-2">24/7 Surveillance for a safe and secure environment.</p>
-                </div>
-                 <div class="feature-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center transition duration-300">
-                    <div class="w-14 h-14 bg-yellow-50 rounded-full flex items-center justify-center text-yellow-600 text-2xl mx-auto mb-4">
-                        <i class="fa-solid fa-newspaper"></i>
-                    </div>
-                    <h3 class="font-bold text-slate-700">Newspapers</h3>
-                    <p class="text-xs text-slate-400 mt-2">Daily Hindi & English newspapers for current affairs.</p>
-                </div>
-                 <div class="feature-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center transition duration-300">
-                    <div class="w-14 h-14 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 text-2xl mx-auto mb-4">
-                        <i class="fa-solid fa-box-archive"></i>
-                    </div>
-                    <h3 class="font-bold text-slate-700">Personal Locker</h3>
-                    <p class="text-xs text-slate-400 mt-2">Store your books safely.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="smart" class="bg-slate-900 py-20 px-4 text-white overflow-hidden relative">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-600 rounded-full blur-[150px] opacity-20"></div>
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
-            <div>
-                <span class="text-blue-400 font-bold tracking-widest uppercase text-sm mb-2 block">Tech Enabled Campus</span>
-                <h2 class="text-4xl font-black mb-6">India's First <br> <span class="text-blue-500">Smart Library</span> System</h2>
-                <p class="text-slate-400 mb-8 text-lg">We don't just provide a seat; we provide an ecosystem. Every student gets access to our exclusive <b>Student App</b>.</p>
-                
-                <ul class="space-y-4">
-                    <li class="flex items-center gap-4"><i class="fa-solid fa-circle-check text-green-500"></i><span><b>Live Attendance Tracking</b> on your phone.</span></li>
-                    <li class="flex items-center gap-4"><i class="fa-solid fa-circle-check text-green-500"></i><span><b>Study Analytics</b> to track your focused hours.</span></li>
-                    <li class="flex items-center gap-4"><i class="fa-solid fa-circle-check text-green-500"></i><span><b>Digital ID Card</b> & Fee Receipts.</span></li>
-                    <li class="flex items-center gap-4"><i class="fa-solid fa-circle-check text-green-500"></i><span><b>Exam Countdown</b> & Notice Alerts.</span></li>
-                </ul>
-
-                <a href="https://safallibrary01.github.io/safallibrary/" class="inline-block mt-8 bg-white text-slate-900 px-8 py-3 rounded-xl font-bold hover:bg-slate-200 transition">
-                    Experience It Today
-                </a>
+<body class="flex items-center justify-center p-4">
+    <div id="bg-animation" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
+    
+    <div id="loginSection" class="w-full max-w-sm glass-card p-8 z-10 transition-all duration-500">
+        <div class="text-center mb-8">
+    <img src="logo.png" alt="Safal Library Logo" class="w-28 h-28 mx-auto mb-4 rounded-full shadow-md border-4 border-white object-cover bg-black">
+    <h1 class="text-3xl font-black text-slate-800 tracking-tight">Student Portal</h1>
+    <p class="text-sm font-bold text-blue-600 uppercase tracking-widest mt-1">Safal Library</p>
+</div>
+        <form id="loginForm" class="space-y-4">
+            <div class="relative">
+                <i class="fa-solid fa-id-card absolute left-4 top-4 text-slate-400"></i>
+                <input type="text" id="loginRegNo" placeholder="Registration No " class="w-full pl-11 pr-4 py-3 rounded-xl border-2 border-slate-200 uppercase font-bold outline-none focus:border-blue-500 transition" required>
             </div>
             <div class="relative">
-                <div class="bg-slate-800 border-4 border-slate-700 rounded-[2.5rem] p-4 shadow-2xl max-w-xs mx-auto transform rotate-[-5deg] hover:rotate-0 transition duration-500">
-                    <div class="bg-slate-900 rounded-[2rem] h-[500px] w-full flex flex-col items-center justify-center text-center p-6">
-                        <i class="fa-solid fa-chart-pie text-6xl text-blue-500 mb-4"></i>
-                        <h3 class="text-2xl font-bold">My Stats</h3>
-                        <p class="text-slate-500 text-sm mt-2">Aditya Kumar</p>
-                        <div class="mt-8 w-full bg-slate-800 rounded-xl p-4">
-                            <p class="text-xs text-slate-400 uppercase">Current Streak</p>
-                            <p class="text-3xl font-bold text-orange-500">12 Days 🔥</p>
-                        </div>
-                    </div>
-                </div>
+                <i class="fa-solid fa-lock absolute left-4 top-4 text-slate-400"></i>
+                <input type="password" id="loginPass" placeholder="Password" class="w-full pl-11 pr-4 py-3 rounded-xl border-2 border-slate-200 outline-none focus:border-blue-500 transition" required>
             </div>
-        </div>
-    </section>
-
-    <section id="pricing" class="py-20 px-4 bg-slate-50">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-black text-slate-800 mb-4">Simple Pricing</h2>
-                <p class="text-slate-500">Invest in your future for less than the cost of a coffee a day.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-8 rounded-3xl shadow-lg border-2 border-slate-100 hover:border-blue-500 transition relative overflow-hidden">
-                    <h3 class="text-xl font-bold text-slate-600 mb-2">Half Day Slot</h3>
-                    <div class="flex items-baseline gap-1 mb-6">
-                        <span class="text-4xl font-black text-slate-800">₹500</span> 
-                        <span class="text-slate-400 font-medium">/month</span>
-                    </div>
-                    <ul class="space-y-3 mb-8 text-sm text-slate-600">
-                        <li class="flex gap-3"><i class="fa-solid fa-check text-green-500"></i> 6 Hours Access</li>
-                        <li class="flex gap-3"><i class="fa-solid fa-check text-green-500"></i> RO-Water</li> 
-                        <li class="flex gap-3"><i class="fa-solid fa-check text-green-500"></i> High-Speed Wi-Fi</li>
-                        <li class="flex gap-3"><i class="fa-solid fa-check text-green-500"></i> App Access</li>
-                    </ul>
-                    <button onclick="toggleModal('registerModal')" class="block w-full text-center bg-slate-100 text-slate-800 py-3 rounded-xl font-bold hover:bg-slate-200 transition">Book Slot</button>
-                </div>
-
-                <div class="bg-slate-900 p-8 rounded-3xl shadow-xl border-2 border-slate-900 relative overflow-hidden transform md:scale-105">
-                    <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">Most Popular</div>
-                    <h3 class="text-xl font-bold text-white mb-2">Full Day Slot</h3>
-                    <div class="flex items-baseline gap-1 mb-6">
-                        <span class="text-4xl font-black text-white">₹700</span>
-                        <span class="text-slate-400 font-medium">/month</span>
-                    </div>
-                    <ul class="space-y-3 mb-8 text-sm text-slate-300">
-                        <li class="flex gap-3"><i class="fa-solid fa-check text-blue-400"></i> 12+ Hours Access</li>
-                        <li class="flex gap-3"><i class="fa-solid fa-check text-blue-400"></i> Personal Locker (Optional)</li>
-                        <li class="flex gap-3"><i class="fa-solid fa-check text-blue-400"></i> Uninterrupted Power</li>
-                        <li class="flex gap-3"><i class="fa-solid fa-check text-blue-400"></i> Priority Support</li>
-                    </ul>
-                    <button onclick="toggleModal('registerModal')" class="block w-full text-center bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition">Book Slot</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact" class="bg-white border-t border-slate-200 pt-16 pb-8 px-4">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 mb-12">
-            <div>
-                <div class="flex items-center gap-2 mb-4">
-                    <img src="logo.png" alt="Safal Library Logo" class="w-8 h-8 rounded-full shadow border-2 border-white object-cover bg-white">
-                    <span class="text-lg font-black text-slate-800">SAFAL LIBRARY</span>
-                </div>
-                <p class="text-slate-500 text-sm leading-relaxed">
-                    Empowering students of Bansdih with a world-class study environment to achieve their dreams.
-                </p>
-            </div>
-            
-            <div>
-                <h4 class="font-bold text-slate-800 mb-4">Contact Us</h4>
-                <ul class="space-y-3 text-sm text-slate-500">
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-location-dot mt-1 text-blue-600"></i>
-                        <span>Near BSNL Office, Bansdih,<br>Uttar Pradesh, India</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fa-solid fa-phone text-blue-600"></i>
-                        <span>+91 9305506411</span>
-                    </li>
-                     <li class="flex items-center gap-3">
-                        <i class="fa-brands fa-whatsapp text-green-500"></i>
-                        <span>+91 9580983727</span>
-                    </li>
-                </ul>
-                <button onclick="toggleModal('registerModal')" class="mt-6 w-full text-center bg-slate-100 text-slate-800 py-2 rounded-lg font-bold text-sm hover:bg-slate-200 transition border border-slate-200">
-                    <i class="fa-solid fa-headset mr-2"></i> Request a Callback
-                </button>
-            </div>
-
-            <div>
-                <h4 class="font-bold text-slate-800 mb-4">Opening Hours</h4>
-                <ul class="space-y-2 text-sm text-slate-500">
-                    <li class="flex justify-between border-b border-slate-100 pb-2">
-                        <span>Monday - Saturday</span>
-                        <span class="font-bold text-slate-700">7:00 AM - 7:00 PM</span>
-                    </li>
-                    <li class="flex justify-between border-b border-slate-100 pb-2">
-                        <span>Sunday</span>
-                        <span class="font-bold text-slate-700">8:00 AM - 6:00 PM</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="max-w-6xl mx-auto mb-10 h-72 rounded-2xl overflow-hidden shadow-sm border border-slate-200">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3589.8817238582596!2d84.22419617485961!3d25.873369903982805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39926110b7171291%3A0x8bacec6c37b956c0!2sSafal%20Library!5e0!3m2!1sen!2sin!4v1775909128995!5m2!1sen!2sin" 
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
-        
-        <div class="text-center pt-8 border-t border-slate-100 text-xs text-slate-400">
-            © 2026 Safal Library. All rights reserved. <br> Designed with ❤️ for Students.
-        </div>
-    </footer>
-
-    <!-- UPDATED: Direct Registration Modal -->
-    <div id="registerModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden relative">
-            <div class="bg-blue-600 p-6 text-white flex justify-between items-center">
-                <div>
-                    <h2 class="text-xl font-bold">Register / Message</h2>
-                    <p class="text-blue-200 text-sm mt-1">Fill the details, we'll get back to you!</p>
-                </div>
-                <button onclick="toggleModal('registerModal')" class="text-blue-200 hover:text-white transition">
-                    <i class="fa-solid fa-xmark text-2xl"></i>
-                </button>
-            </div>
-            
-            <form id="contactForm" class="p-6 space-y-4">
-                <div>
-                    <label class="block text-sm font-bold text-slate-700 mb-1">Full Name</label>
-                    <input type="text" id="userName" placeholder="E.g. Aditya Kumar" class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition" required>
-                </div>
-                <div>
-                    <label class="block text-sm font-bold text-slate-700 mb-1">Mobile Number</label>
-                    <input type="tel" id="userPhone" placeholder="e.g. 9876543210" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition" required>
-                </div>
-                <div>
-                    <label class="block text-sm font-bold text-slate-700 mb-1">Address</label>
-                    <input type="text" id="userAddress" placeholder="Your local address" class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition" required>
-                </div>
-                <div>
-                    <label class="block text-sm font-bold text-slate-700 mb-1">Message / Query</label>
-                    <textarea rows="3" id="userMessage" placeholder="I want to join the morning shift..." class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition" required></textarea>
-                </div>
-                <button type="submit" id="submitBtn" class="w-full bg-slate-900 text-white font-bold py-3 rounded-lg hover:bg-slate-800 transition shadow-lg mt-2 flex justify-center items-center gap-2">
-                    Submit Registration
-                </button>
-            </form>
+            <p id="errorMsg" class="text-red-600 text-xs text-center font-bold hidden bg-red-50 border border-red-200 p-3 rounded-xl animate-pulse">
+                <i class="fa-solid fa-circle-exclamation mr-1"></i> Invalid Credentials. Try again.
+            </p>
+            <button type="submit" id="loginBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black text-lg py-4 rounded-xl shadow-xl shadow-blue-600/30 active:scale-95 transition">
+                Secure Login <i class="fa-solid fa-arrow-right ml-2"></i>
+            </button>
+        </form>
+        <div class="text-center mt-6 flex flex-col gap-2">
+            <p class="text-[10px] text-slate-400 font-bold">By logging in, you agree to our</p>
+            <button onclick="openRules()" class="text-blue-600 text-xs font-black hover:underline tracking-wide uppercase">Terms & Conditions</button>
         </div>
     </div>
 
-    <!-- Firebase Scripts -->
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <div id="dashboardSection" class="w-full max-w-md hidden z-10 modal-pop">
+        <div class="glass-card digital-id overflow-hidden border-4 border-white">
+            <div class="h-32 bg-[url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center relative">
+                <div class="absolute inset-0 bg-blue-900/70 backdrop-blur-sm"></div>
+                <div class="relative z-10 flex justify-between items-start p-4">
+                    <div class="bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-lg text-[10px] font-black tracking-widest uppercase border border-white/30 flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Active Profile
+                    </div>
+                    
+                    <div class="flex items-center gap-2">
+                        <button onclick="openNotifications()" class="relative bg-white/10 hover:bg-white/30 text-white w-8 h-8 rounded-full flex items-center justify-center transition border border-white/30">
+                            <i class="fa-solid fa-bell text-sm"></i>
+                            <span id="notifBadge" class="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full border border-blue-900 hidden"></span>
+                        </button>
+                        <button onclick="logout()" class="bg-white/10 hover:bg-white/30 text-white w-8 h-8 rounded-full flex items-center justify-center transition border border-white/30">
+                            <i class="fa-solid fa-power-off text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="px-6 pb-6 relative text-center -mt-12">
+                <img id="profileImg" src="" class="w-28 h-28 mx-auto rounded-2xl border-4 border-white bg-slate-100 object-cover shadow-2xl relative z-20">
+                <div class="mt-4 mb-6">
+                    <h2 id="dispName" class="text-2xl font-black text-slate-800 tracking-tight">Student Name</h2>
+                    <div class="flex items-center justify-center gap-2 mt-1">
+                        <p id="dispRegNo" class="text-blue-600 font-black text-sm bg-blue-50 px-3 py-1 rounded-lg border border-blue-100">#---</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mb-6">
+                    <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm">
+                        <div class="w-8 h-8 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-2"><i class="fa-solid fa-clock"></i></div>
+                        <p class="text-[10px] text-slate-400 font-black uppercase tracking-wider">Shift Time</p>
+                        <p id="dispTime" class="text-slate-800 font-bold text-sm mt-1">-- : --</p>
+                    </div>
+                    <div id="feeBox" class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm transition-colors">
+                        <div class="w-8 h-8 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto mb-2" id="feeIcon"><i class="fa-solid fa-calendar-check"></i></div>
+                        <p class="text-[10px] text-slate-400 font-black uppercase tracking-wider">Valid Until</p>
+                        <p id="dispFeeDate" class="font-bold text-sm mt-1">--/--/----</p>
+                    </div>
+                </div>
+                <button onclick="startAttendanceScanner()" class="w-full bg-slate-900 hover:bg-black text-white py-4 rounded-2xl font-black text-lg shadow-xl shadow-slate-900/30 active:scale-95 transition flex items-center justify-center gap-3 border border-slate-700">
+                    <i class="fa-solid fa-qrcode text-2xl text-blue-400"></i> SCAN TO ENTER
+                </button>
+                <button onclick="openPaymentHistory()" class="w-full bg-blue-50 text-blue-600 hover:bg-blue-100 py-3 rounded-2xl font-bold text-sm transition mt-3 border border-blue-100 flex items-center justify-center gap-2 mb-6">
+                    <i class="fa-solid fa-clock-rotate-left"></i> View Payment History
+                </button>
+                <div class="text-left bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-3 text-xs">
+                    <div class="flex justify-between items-center border-b border-slate-200 pb-2">
+                        <span class="text-slate-500 font-bold uppercase text-[10px]">Father's Name</span>
+                        <b id="dispFather" class="text-slate-800">--</b>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-slate-200 pb-2">
+                        <span class="text-slate-500 font-bold uppercase text-[10px]">Aadhar No</span>
+                        <b id="dispAadhar" class="text-slate-800">--</b>
+                    </div>
+                    <div class="pt-1">
+                        <span class="text-slate-500 font-bold uppercase text-[10px] block mb-1">Address</span>
+                        <p id="dispAddress" class="text-slate-700 font-medium leading-snug">--</p>
+                    </div>
+                </div>
+                <div class="mt-6 flex justify-center gap-4">
+                    <button onclick="openRules()" class="text-slate-400 font-bold text-xs hover:text-blue-600 transition"><i class="fa-solid fa-file-contract mr-1"></i> Rules</button>
+                    <span class="text-slate-300">|</span>
+                    <a href="https://wa.me/919305506411?text=Hi%20Admin,%20I%20need%20help%20with%20my%20library%20profile." target="_blank" class="text-green-600 font-bold text-xs hover:text-green-700 transition"><i class="fa-brands fa-whatsapp mr-1"></i> Support</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="notifModal" class="fixed inset-0 bg-slate-900/80 hidden z-[100] flex items-center justify-center p-4 backdrop-blur-sm" onclick="closeNotifications()">
+        <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl relative modal-pop overflow-hidden max-h-[85vh] flex flex-col" onclick="event.stopPropagation()">
+            <div class="bg-slate-900 p-5 text-center relative shrink-0">
+                <button onclick="closeNotifications()" class="absolute top-4 right-5 text-white/50 hover:text-white text-2xl transition"><i class="fa-solid fa-xmark"></i></button>
+                <h2 class="text-white font-black text-xl uppercase tracking-widest">Inbox</h2>
+                <p class="text-blue-400 text-xs font-bold tracking-widest mt-1">Updates & Announcements</p>
+            </div>
+            <div class="p-6 overflow-y-auto bg-slate-50 flex-1 space-y-3" id="notifListContainer">
+                </div>
+        </div>
+    </div>
+
+    <div id="alertModal" class="fixed inset-0 bg-slate-900/90 hidden z-[120] flex items-center justify-center p-4 backdrop-blur-md">
+        <div class="bg-white w-full max-w-sm rounded-3xl shadow-2xl relative modal-pop overflow-hidden flex flex-col text-center border-2 border-red-500">
+            <div class="bg-red-600 p-6 text-white border-b border-red-700">
+                <div class="w-16 h-16 border-2 border-white/50 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4 bg-red-700 shadow-inner">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <h2 class="font-black text-xl uppercase tracking-widest">Important Notice</h2>
+            </div>
+            <div class="p-6 text-slate-700 bg-white">
+                <p id="alertMessage" class="font-bold text-sm leading-relaxed text-slate-700 mb-6 border-l-4 border-red-500 pl-3 text-left">
+                    </p>
+                <button onclick="handleUserDismissAlert()" class="w-full bg-slate-900 hover:bg-black text-white py-4 rounded-xl font-bold tracking-widest uppercase transition text-xs">
+                    I Understand
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="paymentModal" class="fixed inset-0 bg-slate-900/80 hidden z-[100] flex items-center justify-center p-4 backdrop-blur-sm" onclick="closePaymentHistory()">
+        <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl relative modal-pop overflow-hidden max-h-[85vh] flex flex-col" onclick="event.stopPropagation()">
+            <div class="bg-slate-900 p-5 text-center relative shrink-0">
+                <button onclick="closePaymentHistory()" class="absolute top-4 right-5 text-white/50 hover:text-white text-2xl transition"><i class="fa-solid fa-xmark"></i></button>
+                <h2 class="text-white font-black text-xl uppercase tracking-widest">Payment History</h2>
+                <p class="text-blue-400 text-xs font-bold tracking-widest mt-1">Past Transactions</p>
+            </div>
+            <div class="p-6 overflow-y-auto bg-slate-50 flex-1" id="paymentListContainer"></div>
+        </div>
+    </div>
+
+    <div id="rulesModal" class="fixed inset-0 bg-slate-900/80 hidden z-[100] flex items-center justify-center p-4 backdrop-blur-sm" onclick="closeRules()">
+        <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl relative modal-pop overflow-hidden max-h-[90vh] flex flex-col" onclick="event.stopPropagation()">
+            <div class="bg-slate-900 p-5 text-center relative shrink-0">
+                <button onclick="closeRules()" class="absolute top-4 right-5 text-white/50 hover:text-white text-2xl transition"><i class="fa-solid fa-xmark"></i></button>
+                <h2 class="text-white font-black text-xl uppercase tracking-widest">Library Rules</h2>
+                <p class="text-blue-400 text-xs font-bold tracking-widest mt-1">सफल पुस्तकालय के नियम</p>
+            </div>
+            <div class="p-6 overflow-y-auto space-y-6 text-sm text-slate-700 bg-slate-50">
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <h3 class="font-black text-slate-800 flex items-center gap-2 mb-2"><i class="fa-solid fa-volume-xmark text-blue-500 text-lg"></i> 1. SILENCE / शांति</h3>
+                    <p class="text-slate-600 text-xs mb-1">Maintain strict silence upon entering the library premises.</p>
+                    <p class="text-slate-800 font-bold text-xs">पुस्तकालय परिसर में प्रवेश करते ही पूर्ण शांति बनाए रखें।</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <h3 class="font-black text-slate-800 flex items-center gap-2 mb-2"><i class="fa-solid fa-gavel text-red-500 text-lg"></i> 2. DISCIPLINE / अनुशासन</h3>
+                    <p class="text-slate-600 text-xs mb-1">Any violence or misbehavior will be reported directly to the Ballia Judiciary.</p>
+                    <p class="text-slate-800 font-bold text-xs">हिंसा या दुर्व्यवहार की सूचना सीधे बलिया न्यायपालिका को दी जाएगी।</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <h3 class="font-black text-slate-800 flex items-center gap-2 mb-2"><i class="fa-solid fa-money-bill-wave text-green-500 text-lg"></i> 3. FEE POLICY / शुल्क नीति</h3>
+                    <p class="text-slate-600 text-xs mb-1">Fees are non-refundable, but can be managed according to your needs.</p>
+                    <p class="text-slate-800 font-bold text-xs">शुल्क वापस नहीं होगा, लेकिन जरूरत अनुसार व्यवस्थित किया जा सकता है।</p>
+                </div>
+                <div class="text-center pt-2">
+                    <button onclick="closeRules()" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-black text-sm transition shadow-lg shadow-blue-200 w-full">I Agree / सहमत हूँ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="scannerView" class="fixed inset-0 bg-black/95 z-[100] hidden flex flex-col items-center justify-center p-6 backdrop-blur-md modal-pop">
+        <h2 class="text-white font-black text-2xl mb-2 tracking-widest">SCAN QR CODE</h2>
+        <p class="text-blue-400 font-bold text-xs mb-8 text-center px-8">Point your camera at the desk QR or Entry QR to mark attendance.</p>
+        <div class="relative w-full max-w-sm aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-700 bg-black">
+            <div class="absolute inset-0 z-10 pointer-events-none flex flex-col items-center justify-center">
+                <div class="w-3/4 h-3/4 border-2 border-white/50 rounded-2xl relative">
+                    <div class="absolute -top-1 -left-1 w-6 h-6 border-t-4 border-l-4 border-blue-500 rounded-tl-xl"></div>
+                    <div class="absolute -top-1 -right-1 w-6 h-6 border-t-4 border-r-4 border-blue-500 rounded-tr-xl"></div>
+                    <div class="absolute -bottom-1 -left-1 w-6 h-6 border-b-4 border-l-4 border-blue-500 rounded-bl-xl"></div>
+                    <div class="absolute -bottom-1 -right-1 w-6 h-6 border-b-4 border-r-4 border-blue-500 rounded-br-xl"></div>
+                    <div class="w-full h-1 bg-blue-500/80 absolute top-0 left-0 shadow-[0_0_15px_rgba(59,130,246,0.8)] animate-[scan_2s_ease-in-out_infinite]"></div>
+                </div>
+            </div>
+            <div id="reader" class="w-full h-full object-cover"></div>
+        </div>
+        <button onclick="stopAttendanceScanner()" class="mt-10 bg-white/10 text-white hover:bg-white/20 border border-white/20 px-8 py-4 rounded-2xl font-black tracking-widest text-sm transition w-full max-w-sm">CANCEL SCAN</button>
+    </div>
+    <style>@keyframes scan { 0% { top: 0; } 50% { top: 100%; } 100% { top: 0; } }</style>
+
+    <button id="fab-ai" onclick="openAiModal()" class="fixed bottom-6 right-6 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-[0_10px_25px_rgba(37,99,235,0.5)] hover:bg-blue-700 hover:scale-110 active:scale-95 transition-all z-50 hidden modal-pop border-2 border-white">
+        <i class="fa-solid fa-robot"></i>
+    </button>
+
+    <div id="aiModal" class="fixed inset-0 bg-slate-900/80 hidden z-[110] flex items-center justify-center p-4 backdrop-blur-sm" onclick="closeAiModal()">
+        <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl relative modal-pop overflow-hidden h-[85vh] flex flex-col" onclick="event.stopPropagation()">
+            <div class="bg-blue-600 p-4 flex justify-between items-center shrink-0">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white text-xl"><i class="fa-solid fa-robot"></i></div>
+                    <div>
+                        <h2 class="text-white font-black text-lg leading-tight">Safal AI</h2>
+                        <p class="text-blue-200 text-[10px] font-bold uppercase tracking-widest">Student Assistant</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 items-center">
+                    <select id="ai-language" class="text-xs bg-white/20 text-white border border-white/30 rounded px-2 py-1 outline-none font-bold cursor-pointer">
+                        <option value="English" class="text-slate-800">English</option>
+                        <option value="Hindi" class="text-slate-800">Hindi</option>
+                        <option value="Hinglish" class="text-slate-800">Hinglish</option>
+                    </select>
+                    <button onclick="closeAiModal()" class="text-white/70 hover:text-white transition"><i class="fa-solid fa-xmark text-xl"></i></button>
+                </div>
+            </div>
+            <div id="ai-chat-history" class="p-4 overflow-y-auto flex-1 bg-slate-50 flex flex-col gap-3 text-sm">
+                <div class="bg-white border border-slate-200 text-slate-700 p-3 rounded-2xl rounded-tl-sm self-start max-w-[85%] shadow-sm leading-relaxed">
+                    Welcome to Safal Library! Type, speak <i class="fa-solid fa-microphone text-blue-500 mx-1"></i>, or upload a picture <i class="fa-solid fa-camera text-blue-500 mx-1"></i> of your question.
+                </div>
+            </div>
+            <div id="ai-loading" class="hidden px-5 py-2 text-xs font-bold text-slate-400 italic bg-slate-50"><i class="fa-solid fa-circle-notch fa-spin mr-1"></i> AI is thinking...</div>
+            <div id="ai-image-preview-container" class="hidden px-4 py-3 bg-slate-100 border-t border-slate-200 relative shrink-0">
+                <img id="ai-image-preview" src="" class="h-16 rounded-lg border border-slate-300 shadow-sm object-cover">
+                <button onclick="clearAiImage()" class="absolute top-1 left-2 bg-slate-800 text-white rounded-full w-6 h-6 flex items-center justify-center text-[10px] shadow hover:bg-red-500 transition"><i class="fa-solid fa-times"></i></button>
+            </div>
+            <div class="bg-white p-3 border-t border-slate-100 flex items-center gap-2 shrink-0">
+                <input type="file" id="ai-file-input" accept="image/*" class="hidden" onchange="handleAiImageUpload(event)">
+                <button onclick="document.getElementById('ai-file-input').click()" class="text-slate-400 hover:text-blue-600 transition p-2 bg-slate-100 rounded-full w-10 h-10 flex items-center justify-center"><i class="fa-solid fa-camera"></i></button>
+                <button id="ai-mic-btn" onclick="toggleAiMic()" class="text-slate-400 hover:text-blue-600 transition p-2 bg-slate-100 rounded-full w-10 h-10 flex items-center justify-center"><i class="fa-solid fa-microphone"></i></button>
+                <input type="text" id="ai-user-input" placeholder="Ask a question..." class="flex-1 bg-slate-100 border-none rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-blue-100 font-medium text-slate-700" onkeypress="handleAiKeyPress(event)">
+                <button id="ai-send-btn" onclick="sendAiMessage()" class="bg-blue-600 text-white w-12 h-12 rounded-xl flex items-center justify-center hover:bg-blue-700 transition shadow-lg shadow-blue-200 shrink-0"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // Initialize Firebase
-        const firebaseConfig = {
-            apiKey: "AIzaSyDRIberc1UGjTWKsxbrw-1PRwcBdDdPxf0",
-            authDomain: "website-7d1b5.firebaseapp.com",
-            projectId: "website-7d1b5",
-            storageBucket: "website-7d1b5.firebasestorage.app",
-            messagingSenderId: "923002231019",
-            appId: "1:923002231019:web:a9764a78d87b8b330a06ae"
-        };
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
+        const BACKEND_URL = 'https://test3-qi2z.onrender.com';
+        let studentData = null;
+        let scanner = null;
+        let backgroundSyncInterval = null;
 
-        // Modal Toggle
-        function toggleModal(id) {
-            document.getElementById(id).classList.toggle('hidden');
+        // Auto-login
+        window.addEventListener('DOMContentLoaded', async () => {
+            const savedReg = localStorage.getItem('safal_student_reg');
+            const savedPass = localStorage.getItem('safal_student_pass');
+            if(savedReg && savedPass) {
+                document.getElementById('loginBtn').innerText = "Resuming Session...";
+                await attemptLogin(savedReg, savedPass);
+            }
+        });
+
+        // Login Submission
+        document.getElementById('loginForm').addEventListener('submit', async(e) => {
+            e.preventDefault(); 
+            const r = document.getElementById('loginRegNo').value.trim().toUpperCase(); 
+            const p = document.getElementById('loginPass').value.trim();
+            await attemptLogin(r, p);
+        });
+
+        async function attemptLogin(regNo, pass) {
+            const btn = document.getElementById('loginBtn'); 
+            btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Authenticating...`;
+            
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ regNo, pass })
+                });
+
+                if(response.ok) {
+                    studentData = await response.json();
+                    localStorage.setItem('safal_student_reg', regNo);
+                    localStorage.setItem('safal_student_pass', pass);
+                    renderDash(); 
+                    document.getElementById('loginSection').classList.add('hidden'); 
+                    document.getElementById('dashboardSection').classList.remove('hidden');
+
+                    // ==========================================
+                    // 🚀 INITIAL NOTIFICATION & ALERTS CHECK
+                    // ==========================================
+                    handleBackendAlertSync(studentData);
+                    renderNotifications(studentData.notifications || []);
+
+                    // Start background polling to simulate real-time updates securely
+                    startBackgroundSync(regNo, pass);
+                    
+                } else {
+                    document.getElementById('errorMsg').classList.remove('hidden');
+                    btn.innerHTML = `Secure Login <i class="fa-solid fa-arrow-right ml-2"></i>`;
+                    localStorage.clear();
+                }
+            } catch (err) {
+                console.error(err);
+                btn.innerHTML = `Secure Login <i class="fa-solid fa-arrow-right ml-2"></i>`;
+            }
         }
 
-        // Form Submission - Direct to inquiries collection
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // ==========================================
+        // 🚀 SECURE BACKGROUND SYNC (POLLING)
+        // ==========================================
+        function startBackgroundSync(regNo, pass) {
+            if (backgroundSyncInterval) clearInterval(backgroundSyncInterval);
             
-            const btn = document.getElementById('submitBtn');
-            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
-            btn.disabled = true;
+            // Check the backend every 5 seconds without freezing the UI
+            backgroundSyncInterval = setInterval(async () => {
+                try {
+                    const response = await fetch(`${BACKEND_URL}/api/login`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ regNo, pass })
+                    });
+                    if (response.ok) {
+                        const freshData = await response.json();
+                        handleBackendAlertSync(freshData);
+                        renderNotifications(freshData.notifications || []);
+                        
+                        // Silently keep global student data up to date
+                        studentData = freshData;
+                    }
+                } catch(e) {
+                    // Ignore network blips during polling
+                }
+            }, 5000);
+        }
 
-            const name = document.getElementById('userName').value;
-            const phone = document.getElementById('userPhone').value;
-            const address = document.getElementById('userAddress').value;
-            const message = document.getElementById('userMessage').value;
+        window.logout = function() {
+            localStorage.clear();
+            if (backgroundSyncInterval) clearInterval(backgroundSyncInterval);
+            document.getElementById('fab-ai').classList.add('hidden');
+            location.reload();
+        }
 
-            // Save data directly to the inquiries collection
-            db.collection("inquiries").add({
-                name: name,
-                phone: phone,
-                address: address,
-                message: message,
-                status: "unread",
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            })
-            .then(() => {
-                alert("Success! Your registration details have been sent to Safal Library.");
-                
-                // Reset form and close modal
-                document.getElementById('contactForm').reset();
-                toggleModal('registerModal');
-                
-                // Reset button state
-                btn.innerHTML = 'Submit Registration';
-                btn.disabled = false;
-            })
-            .catch((error) => {
-                console.error("Error writing document: ", error);
-                alert("Something went wrong saving your details. Please try again.");
-                btn.innerHTML = 'Submit Registration';
-                btn.disabled = false;
+        // ==========================================
+        // EMERGENCY ALERTS LOGIC (SYNC & DISMISS)
+        // ==========================================
+        
+        // This tracks the ID of the alert the user explicitly clicked "I Understand" on.
+        window.dismissedAlertId = null;
+
+        function handleBackendAlertSync(freshData) {
+            const modal = document.getElementById('alertModal');
+            
+            if (freshData.emergencyAlert && freshData.emergencyAlert.active) {
+                // If the alert is active, but the student hasn't dismissed THIS specific alert ID yet...
+                if (freshData.emergencyAlert.id !== window.dismissedAlertId) {
+                    // Only pop it up if it's currently hidden to avoid annoying re-renders
+                    if (modal.classList.contains('hidden')) {
+                        triggerEmergencyAlert(freshData.emergencyAlert.message);
+                    }
+                }
+            } else {
+                // If the admin turned it off, close the modal immediately and reset dismissal
+                closeAlert();
+                window.dismissedAlertId = null;
+            }
+        }
+
+        window.triggerEmergencyAlert = function(message) {
+            document.getElementById('alertMessage').innerText = message;
+            document.getElementById('alertModal').classList.remove('hidden');
+        }
+
+        window.closeAlert = function() {
+            document.getElementById('alertModal').classList.add('hidden');
+        }
+
+        // Fired when the student specifically clicks "I Understand"
+        window.handleUserDismissAlert = function() {
+            // Remember the ID of the alert they just dismissed so the 5-second interval doesn't pop it back up
+            if (studentData && studentData.emergencyAlert) {
+                window.dismissedAlertId = studentData.emergencyAlert.id;
+            }
+            closeAlert();
+        }
+
+        // ==========================================
+        // STANDARD INBOX NOTIFICATIONS LOGIC
+        // ==========================================
+        window.openNotifications = function() {
+            document.getElementById('notifModal').classList.remove('hidden');
+            document.getElementById('notifBadge').classList.add('hidden');
+            
+            // NEW: Save the current notifications signature so the app remembers they've been read
+            if (window.currentNotifSignature) {
+                localStorage.setItem('safal_seen_notifs_signature', window.currentNotifSignature);
+            }
+        }
+        
+        window.closeNotifications = function() {
+            document.getElementById('notifModal').classList.add('hidden');
+        }
+
+        window.renderNotifications = function(notifications) {
+            const container = document.getElementById('notifListContainer');
+            container.innerHTML = '';
+            
+            const currentTime = new Date().getTime();
+
+            // Filter out messages that are scheduled for the future OR have expired
+            const validNotifications = notifications.filter(notif => {
+                if(!notif.validFrom || !notif.validUntil) return true; 
+                return currentTime >= notif.validFrom && currentTime <= notif.validUntil;
             });
-        });
+
+            // NEW: Create a unique text string (signature) based on titles and dates
+            window.currentNotifSignature = validNotifications.map(n => n.title + n.date).join('|');
+            const seenNotifSignature = localStorage.getItem('safal_seen_notifs_signature');
+
+            if(validNotifications.length > 0) {
+                // NEW: Only show badge if the modal is hidden AND there are actually new/different notifications
+                if (window.currentNotifSignature !== seenNotifSignature) {
+                    if (document.getElementById('notifModal').classList.contains('hidden')) {
+                        document.getElementById('notifBadge').classList.remove('hidden'); 
+                    }
+                } else {
+                    // Keep it hidden if they match what we already read
+                    document.getElementById('notifBadge').classList.add('hidden');
+                }
+                
+                const displayNotifs = validNotifications.reverse();
+
+                displayNotifs.forEach(notif => {
+                    container.innerHTML += `
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <div class="flex justify-between items-start mb-1">
+                                <h3 class="font-bold text-sm text-slate-800">${notif.title}</h3>
+                                <span class="text-[9px] font-bold text-slate-400 bg-slate-50 px-2 py-0.5 rounded border border-slate-100">${notif.date}</span>
+                            </div>
+                            <p class="text-xs text-slate-600 mt-2 leading-relaxed">${notif.body}</p>
+                        </div>
+                    `;
+                });
+            } else {
+                // Ensure badge is hidden if there are 0 active notifications
+                document.getElementById('notifBadge').classList.add('hidden');
+                container.innerHTML = `
+                    <div class="text-center py-10">
+                        <div class="w-12 h-12 bg-slate-200 text-slate-400 rounded-full flex items-center justify-center mx-auto mb-3 text-xl shadow-inner">
+                            <i class="fa-regular fa-bell-slash"></i>
+                        </div>
+                        <p class="text-slate-500 font-bold text-sm">No new notifications</p>
+                    </div>`;
+            }
+        }
+
+        // ==========================================
+        // DASHBOARD RENDERING
+        // ==========================================
+        function renderDash() {
+            document.getElementById('dispName').innerText = studentData.name; 
+            document.getElementById('dispRegNo').innerText = "#" + studentData.regNo;
+            document.getElementById('dispTime').innerText = formatTime(studentData.shiftStart) + " - " + formatTime(studentData.shiftEnd);
+            document.getElementById('dispFather').innerText = studentData.father || "N/A"; 
+            document.getElementById('dispAadhar').innerText = studentData.aadhar || "N/A";
+            document.getElementById('dispAddress').innerText = studentData.address || "N/A"; 
+            document.getElementById('profileImg').src = studentData.image || "https://cdn-icons-png.flaticon.com/512/3135/3135715.png";
+
+            if (studentData.aiEnabled !== false) {
+                document.getElementById('fab-ai').classList.remove('hidden');
+            } else {
+                document.getElementById('fab-ai').classList.add('hidden');
+            }
+
+            const today = new Date(); today.setHours(0,0,0,0);
+            const due = new Date(studentData.feeDueDate);
+            const feeBox = document.getElementById('feeBox');
+            const feeIcon = document.getElementById('feeIcon');
+            const dispFee = document.getElementById('dispFeeDate');
+            
+            if (due < today) {
+                feeBox.className = "bg-red-50 p-4 rounded-2xl border border-red-200 shadow-sm animate-pulse";
+                feeIcon.className = "w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-2";
+                feeIcon.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i>`;
+                dispFee.className = "font-black text-sm mt-1 text-red-700 flex flex-col items-center gap-1";
+                dispFee.innerHTML = `<span>OVERDUE (${formatDateStr(studentData.feeDueDate)})</span>`;
+            } else {
+                dispFee.className = "font-bold text-sm mt-1 text-slate-800 flex flex-col items-center gap-1";
+                dispFee.innerHTML = `<span>${formatDateStr(studentData.feeDueDate)}</span>`;
+            }
+
+            if (studentData.pendingAmount && Number(studentData.pendingAmount) > 0) {
+                dispFee.innerHTML += `<span class="text-[9px] font-black bg-red-100 text-red-700 px-2 py-0.5 rounded border border-red-200 tracking-widest uppercase">Pending: ₹${studentData.pendingAmount}</span>`;
+            }
+        } 
+
+        // ==========================================
+        // OTHER PORTAL FEATURES
+        // ==========================================
+        window.openPaymentHistory = async () => {
+            document.getElementById('paymentModal').classList.remove('hidden');
+            const container = document.getElementById('paymentListContainer');
+            container.innerHTML = `<div class="text-center py-10 text-slate-400"><i class="fa-solid fa-circle-notch fa-spin text-3xl mb-3 text-blue-500"></i><p class="text-xs font-bold uppercase">Loading records...</p></div>`;
+
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/payments/${studentData.regNo}`);
+                const payments = await response.json();
+                
+                payments.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                if(payments.length === 0) {
+                    container.innerHTML = `<div class="text-center py-10"><div class="w-16 h-16 bg-slate-200 text-slate-400 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl shadow-inner"><i class="fa-solid fa-receipt"></i></div><p class="text-slate-500 font-bold">No payment history found.</p><p class="text-[10px] text-slate-400 mt-1">Recent payments may take time to update.</p></div>`;
+                    return;
+                }
+
+                container.innerHTML = '<div class="space-y-3"></div>';
+                const listDiv = container.querySelector('div');
+
+                payments.forEach(p => {
+                    const paidAmt = p.paidAmount !== undefined ? p.paidAmount : p.amount;
+                    const totalAmt = p.totalAmount !== undefined ? p.totalAmount : paidAmt;
+                    const pendingAmt = p.pendingAmount || 0;
+                    
+                    const statusBadge = pendingAmt > 0 
+                        ? `<span class="bg-red-100 text-red-700 px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest border border-red-200">DUE: ₹${pendingAmt}</span>`
+                        : `<span class="bg-green-100 text-green-700 px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest border border-green-200">PAID</span>`;
+
+                    let amountDisplay = `₹${paidAmt}`;
+                    if (pendingAmt > 0) {
+                        amountDisplay += ` <span class="text-[10px] text-slate-400 font-bold tracking-normal ml-1">/ ₹${totalAmt}</span>`;
+                    }
+
+                    listDiv.innerHTML += `
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex justify-between items-center hover:border-blue-300 transition">
+                            <div>
+                                <p class="text-xs font-bold text-slate-400 mb-1"><i class="fa-regular fa-calendar text-[10px]"></i> ${formatDateStr(p.date)}</p>
+                                <p class="font-black text-slate-800 text-lg">${amountDisplay}</p>
+                                <p class="text-[9px] text-slate-500 font-bold uppercase mt-1 tracking-widest bg-slate-50 inline-block px-2 py-0.5 rounded border border-slate-100">Valid: ${formatDateStr(p.startDate)} - ${formatDateStr(p.endDate)}</p>
+                            </div>
+                            <div class="text-right flex flex-col items-end">
+                                ${statusBadge}
+                                <p class="text-[10px] text-slate-400 font-bold uppercase mt-2">${p.mode || 'Cash'}</p>
+                            </div>
+                        </div>`;
+                });
+            } catch(e) {
+                container.innerHTML = `<p class="text-center text-red-500 text-xs font-bold py-10">Error loading history. Check connection.</p>`;
+            }
+        }
+        window.closePaymentHistory = () => document.getElementById('paymentModal').classList.add('hidden');
+
+        // Rules Modal
+        window.openRules = () => document.getElementById('rulesModal').classList.remove('hidden');
+        window.closeRules = () => document.getElementById('rulesModal').classList.add('hidden');
+
+        // QR Scanner
+        window.startAttendanceScanner = () => {
+            document.getElementById('scannerView').classList.remove('hidden');
+            scanner = new Html5Qrcode("reader");
+            scanner.start({ facingMode: "environment" }, { fps: 10, qrbox: { width: 250, height: 250 } }, async (code) => {
+                await stopAttendanceScanner();
+                
+                let payload = {};
+                if (code.startsWith("SAFAL_SEAT_")) {
+                    const seatNum = code.split("_")[2];
+                    payload = { type: 'seat', studentId: studentData.id, name: studentData.name, regNo: studentData.regNo, seatNo: seatNum };
+                    studentData.seatNo = seatNum; 
+                    renderDash(); 
+                } else if(code === "SAFAL_LIB_ENTRY_2026") {
+                    payload = { type: 'entry', studentId: studentData.id, name: studentData.name, regNo: studentData.regNo };
+                }
+
+                try {
+                    const response = await fetch(`${BACKEND_URL}/api/attendance`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const result = await response.json();
+                    if(result.success) alert(`✅ ${result.message}`);
+                } catch (err) {
+                    alert("Error marking attendance. Try again.");
+                }
+            });
+        }
+        window.stopAttendanceScanner = async () => { if(scanner){ await scanner.stop(); scanner=null; } document.getElementById('scannerView').classList.add('hidden'); }
+
+        function formatTime(t){if(!t)return"--";const[h,m]=t.split(':');return`${h%12||12}:${m}${h>=12?'PM':'AM'}`;}
+        function formatDateStr(dateStr) { if(!dateStr) return "--/--/----"; const d = new Date(dateStr); return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }); }
+        
+        const bgContainer = document.getElementById('bg-animation');
+        for(let i=0; i<20; i++){ 
+            const b = document.createElement('i'); b.className = 'fa-solid fa-book book-icon'; b.style.left = Math.random() * 100 + 'vw'; b.style.animationDuration = (4 + Math.random() * 4) + 's'; b.style.animationDelay = (Math.random() * 3) + 's'; const icons = ['fa-book', 'fa-graduation-cap', 'fa-pen', 'fa-laptop-code']; b.classList.add(icons[Math.floor(Math.random() * icons.length)]); bgContainer.appendChild(b);
+        }
+
+        // ==========================================
+        // AI ASSISTANT MODULE
+        // ==========================================
+        let aiConversationHistory = [];
+        let aiImageBase64 = null;
+        let aiImageMimeType = null;
+        
+        window.openAiModal = () => document.getElementById('aiModal').classList.remove('hidden');
+        window.closeAiModal = () => document.getElementById('aiModal').classList.add('hidden');
+
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        let recognition = null; let isAiRecording = false;
+        if (SpeechRecognition) {
+            recognition = new SpeechRecognition(); recognition.continuous = false; recognition.interimResults = false;
+            recognition.onstart = function() { isAiRecording = true; const micBtn = document.getElementById('ai-mic-btn'); micBtn.classList.add('text-red-500', 'animate-pulse'); micBtn.classList.remove('text-slate-400'); document.getElementById('ai-user-input').placeholder = "Listening..."; };
+            recognition.onresult = function(event) { document.getElementById('ai-user-input').value += event.results[0][0].transcript; };
+            recognition.onerror = function(event) { stopAiMic(); }; recognition.onend = function() { stopAiMic(); };
+        } else { document.getElementById('ai-mic-btn').style.display = 'none'; }
+
+        window.toggleAiMic = function() {
+            if (!recognition) return;
+            if (isAiRecording) { recognition.stop(); } else {
+                const lang = document.getElementById('ai-language').value; recognition.lang = lang === 'Hindi' ? 'hi-IN' : (lang === 'English' ? 'en-US' : 'hi-IN'); recognition.start();
+            }
+        }
+        function stopAiMic() { isAiRecording = false; const micBtn = document.getElementById('ai-mic-btn'); micBtn.classList.remove('text-red-500', 'animate-pulse'); micBtn.classList.add('text-slate-400'); document.getElementById('ai-user-input').placeholder = "Ask a question..."; }
+
+        window.handleAiImageUpload = function(event) {
+            const file = event.target.files[0]; if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('ai-image-preview').src = e.target.result; document.getElementById('ai-image-preview-container').classList.remove('hidden');
+                aiImageBase64 = e.target.result.split(',')[1]; aiImageMimeType = file.type;
+            };
+            reader.readAsDataURL(file);
+        }
+        window.clearAiImage = function() { aiImageBase64 = null; aiImageMimeType = null; document.getElementById('ai-image-preview-container').classList.add('hidden'); document.getElementById('ai-file-input').value = ""; }
+
+        window.handleAiKeyPress = function(event) { if (event.key === 'Enter') window.sendAiMessage(); }
+        function formatAiText(text) {
+            let formatted = text.replace(/\n/g, '<br>'); formatted = formatted.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" class="text-blue-600 font-bold underline">$1</a>');
+            formatted = formatted.replace(/(https?:\/\/[^\s]+)(?!["'])/g, function(url) { if(url.includes('href=')) return url; return `<a href="${url}" target="_blank" class="text-blue-600 font-bold underline">${url}</a>`; }); return formatted;
+        }
+
+        function appendAiMessage(sender, text, imageUrl = null) {
+            const history = document.getElementById('ai-chat-history'); const msgDiv = document.createElement('div');
+            msgDiv.className = sender === 'user' ? "bg-blue-600 text-white p-3 rounded-2xl rounded-tr-sm self-end max-w-[85%] shadow-sm leading-relaxed" : "bg-white border border-slate-200 text-slate-700 p-3 rounded-2xl rounded-tl-sm self-start max-w-[85%] shadow-sm leading-relaxed";
+            msgDiv.innerHTML = formatAiText(text);
+            if (imageUrl) { const img = document.createElement('img'); img.src = imageUrl; img.className = "mt-2 rounded-lg max-w-full border border-black/10 shadow-sm"; msgDiv.appendChild(img); }
+            history.appendChild(msgDiv); history.scrollTop = history.scrollHeight;
+        }
+
+        window.sendAiMessage = async function() {
+            const userInput = document.getElementById('ai-user-input'); const sendBtn = document.getElementById('ai-send-btn'); const loading = document.getElementById('ai-loading');
+            const text = userInput.value.trim(); const hasImage = aiImageBase64 !== null;
+            if (!text && !hasImage) return;
+
+            const previewUrl = hasImage ? document.getElementById('ai-image-preview').src : null;
+            appendAiMessage('user', text, previewUrl);
+            userInput.value = ''; sendBtn.disabled = true; loading.classList.remove('hidden');
+
+            let userParts = [];
+            if (text) userParts.push({ text: text });
+            if (hasImage) userParts.push({ inline_data: { mime_type: aiImageMimeType, data: aiImageBase64 } });
+
+            window.clearAiImage(); aiConversationHistory.push({ role: "user", parts: userParts });
+
+            const studentName = studentData ? studentData.name : "Student";
+            const currentLang = document.getElementById('ai-language').value;
+            const dynamicSystemInstruction = `You are the official AI assistant for Safal Library. You are talking to a student named ${studentName}. Library Information: Opening Hours: 7 AM - 7 PM, Mobile No: 9305506411, Address: Near BSNL Office Bansdih Ballia. CRITICAL RULE: You MUST respond to the user in ${currentLang}. Help them solve questions, equations, or provide library info. Be encouraging.`;
+
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/ai`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ systemInstruction: dynamicSystemInstruction, contents: aiConversationHistory })
+                });
+
+                if (!response.ok) throw new Error(`API Error: ${response.status}`);
+                const data = await response.json();
+                const aiResponse = data.candidates[0].content.parts[0].text;
+                aiConversationHistory.push({ role: "model", parts: [{ text: aiResponse }] });
+                appendAiMessage('ai', aiResponse);
+            } catch (error) {
+                appendAiMessage('ai', 'Sorry, the server is busy. Please wait a few seconds and try again.');
+                aiConversationHistory.pop(); 
+            } finally {
+                sendBtn.disabled = false; loading.classList.add('hidden'); userInput.focus();
+            }
+        }
     </script>
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon='{"version":"2024.11.0","token":"033bb42debdb4deb86405e8139d6074e","r":1,"spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
