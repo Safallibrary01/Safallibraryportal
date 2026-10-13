@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safal Library - Bansdih</title>
+    
+    <!-- App Icons / Favicon -->
+    <link rel="icon" type="image/jpeg" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Outfit', sans-serif; scroll-behavior: smooth; }
+        .hero-bg { 
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .feature-card:hover { transform: translateY(-5px); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <nav class="bg-white/90 backdrop-blur-md fixed w-full z-50 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <img src="logo.png" alt="Safal Library Logo" class="w-10 h-10 rounded-full shadow-lg border-2 border-white object-cover bg-white">
+                <span class="text-xl font-black text-slate-800 tracking-tight">SAFAL<span class="text-blue-600">LIBRARY</span></span>
+            </div>
+            
+            <div class="hidden md:flex gap-8 font-bold text-sm text-slate-500">
+                <a href="#home" class="hover:text-blue-600 transition">Home</a>
+                <a href="#features" class="hover:text-blue-600 transition">Facilities</a>
+                <a href="#smart" class="hover:text-blue-600 transition">Smart App</a>
+                <a href="#pricing" class="hover:text-blue-600 transition">Plans</a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <button onclick="toggleModal('registerModal')" class="bg-slate-900 text-white px-5 py-2 rounded-full font-bold text-sm hover:bg-slate-800 transition shadow-lg">
+                    Join Now
+                </button>
+                <a href="https://safallibrary01.github.io/safallibrary/" target="_blank" class="bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-sm hover:bg-blue-700 transition shadow-lg flex items-center gap-2">
+                    <i class="fa-solid fa-user"></i> Login
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-bg h-screen flex items-center justify-center text-center px-4 pt-16">
+        <div class="max-w-3xl">
+            <span class="bg-blue-600/20 text-blue-300 border border-blue-500/30 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block backdrop-blur-sm">
+                Bansdih's Best Self Study Zone
+            </span>
+            <h1 class="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
+                Focus Better.<br> Achieve <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Faster.</span>
+            </h1>
+            <p class="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
+                A premium, silent, and tech-enabled co-working space designed for serious aspirants. 
+                Equipped with high-speed Wi-Fi, AC, and ergonomic seating.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#pricing" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition shadow-xl shadow-blue-900/50">
+                    View Plans
+                </a>
+                <a href="#contact" class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition">
+                    <i class="fa-solid fa-location-dot mr-2"></i> Locate Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black text-slate-800 mb-4">Premium Facilities</h2>
+                <p class="text-slate-500 max-w-xl mx-auto">We provide everything you need to study without distractions.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="feature-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center transition duration-300">
+                    <div class="w-14 h-14 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-wifi"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-700">5G Wi-Fi</h3>
+                    <p class="text-xs text-slate-400 mt-2">High-speed fiber net for uninterrupted online classes.</p>
+                </div>
+                <div class="feature-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center transition duration-300">
+                    <div class="w-14 h-14 bg-cyan-50 rounded-full flex items-center justify-center text-cyan-600 text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-snowflake"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-700">Fully AC</h3>
+                    <p class="text-xs text-slate-400 mt-2">Climate-controlled environment for maximum comfort.</p>
+                </div>
+                <div class="feature-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center transition duration-300">
+                    <div class="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center text-green-600 text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-700">Power Backup</h3>
+                    <p class="text-xs text-slate-400 mt-2">24/7 Inverter support. Never let power cuts stop you.</p>
+                </div>
+                <div class="feature-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center transition duration-300">
+                    <div class="w-14 h-14 bg-orange-50 rounded-full flex items-center justify-center text-orange-600 text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-glass-water"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-700">RO Water</h3>
+                    <p class="text-xs text-slate-400 mt-2">Chilled & Clean drinking water available.</p>
+                </div>
+                 <div class="feature-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center transition duration-300">
+                    <div class="w-14 h-14 bg-purple-50 rounded-full flex items-center justify-center text-purple-600 text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-chair"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-700">Reserved Seat</h3>
+                    <p class="text-xs text-slate-400 mt-2">Your personal desk. No daily hassle of finding a spot.</p>
+                </div>
+                 <div class="feature-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center transition duration-300">
+                    <div class="w-14 h-14 bg-red-50 rounded-full flex items-center justify-center text-red-600 text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-700">CCTV Secure</h3>
+                    <p class="text-xs text-slate-400 mt-2">24/7 Surveillance for a safe and secure environment.</p>
+                </div>
+                 <div class="feature-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center transition duration-300">
+                    <div class="w-14 h-14 bg-yellow-50 rounded-full flex items-center justify-center text-yellow-600 text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-newspaper"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-700">Newspapers</h3>
+                    <p class="text-xs text-slate-400 mt-2">Daily Hindi & English newspapers for current affairs.</p>
+                </div>
+                 <div class="feature-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center transition duration-300">
+                    <div class="w-14 h-14 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-box-archive"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-700">Personal Locker</h3>
+                    <p class="text-xs text-slate-400 mt-2">Store your books safely.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="smart" class="bg-slate-900 py-20 px-4 text-white overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-600 rounded-full blur-[150px] opacity-20"></div>
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div>
+                <span class="text-blue-400 font-bold tracking-widest uppercase text-sm mb-2 block">Tech Enabled Campus</span>
+                <h2 class="text-4xl font-black mb-6">India's First <br> <span class="text-blue-500">Smart Library</span> System</h2>
+                <p class="text-slate-400 mb-8 text-lg">We don't just provide a seat; we provide an ecosystem. Every student gets access to our exclusive <b>Student App</b>.</p>
+                
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-4"><i class="fa-solid fa-circle-check text-green-500"></i><span><b>Live Attendance Tracking</b> on your phone.</span></li>
+                    <li class="flex items-center gap-4"><i class="fa-solid fa-circle-check text-green-500"></i><span><b>Study Analytics</b> to track your focused hours.</span></li>
+                    <li class="flex items-center gap-4"><i class="fa-solid fa-circle-check text-green-500"></i><span><b>Digital ID Card</b> & Fee Receipts.</span></li>
+                    <li class="flex items-center gap-4"><i class="fa-solid fa-circle-check text-green-500"></i><span><b>Exam Countdown</b> & Notice Alerts.</span></li>
+                </ul>
+
+                <a href="https://safallibrary01.github.io/safallibrary/" class="inline-block mt-8 bg-white text-slate-900 px-8 py-3 rounded-xl font-bold hover:bg-slate-200 transition">
+                    Experience It Today
+                </a>
+            </div>
+            <div class="relative">
+                <div class="bg-slate-800 border-4 border-slate-700 rounded-[2.5rem] p-4 shadow-2xl max-w-xs mx-auto transform rotate-[-5deg] hover:rotate-0 transition duration-500">
+                    <div class="bg-slate-900 rounded-[2rem] h-[500px] w-full flex flex-col items-center justify-center text-center p-6">
+                        <i class="fa-solid fa-chart-pie text-6xl text-blue-500 mb-4"></i>
+                        <h3 class="text-2xl font-bold">My Stats</h3>
+                        <p class="text-slate-500 text-sm mt-2">Aditya Kumar</p>
+                        <div class="mt-8 w-full bg-slate-800 rounded-xl p-4">
+                            <p class="text-xs text-slate-400 uppercase">Current Streak</p>
+                            <p class="text-3xl font-bold text-orange-500">12 Days 🔥</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-20 px-4 bg-slate-50">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black text-slate-800 mb-4">Simple Pricing</h2>
+                <p class="text-slate-500">Invest in your future for less than the cost of a coffee a day.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-3xl shadow-lg border-2 border-slate-100 hover:border-blue-500 transition relative overflow-hidden">
+                    <h3 class="text-xl font-bold text-slate-600 mb-2">Half Day Slot</h3>
+                    <div class="flex items-baseline gap-1 mb-6">
+                        <span class="text-4xl font-black text-slate-800">₹500</span> 
+                        <span class="text-slate-400 font-medium">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 text-sm text-slate-600">
+                        <li class="flex gap-3"><i class="fa-solid fa-check text-green-500"></i> 6 Hours Access</li>
+                        <li class="flex gap-3"><i class="fa-solid fa-check text-green-500"></i> RO-Water</li> 
+                        <li class="flex gap-3"><i class="fa-solid fa-check text-green-500"></i> High-Speed Wi-Fi</li>
+                        <li class="flex gap-3"><i class="fa-solid fa-check text-green-500"></i> App Access</li>
+                    </ul>
+                    <button onclick="toggleModal('registerModal')" class="block w-full text-center bg-slate-100 text-slate-800 py-3 rounded-xl font-bold hover:bg-slate-200 transition">Book Slot</button>
+                </div>
+
+                <div class="bg-slate-900 p-8 rounded-3xl shadow-xl border-2 border-slate-900 relative overflow-hidden transform md:scale-105">
+                    <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">Most Popular</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Full Day Slot</h3>
+                    <div class="flex items-baseline gap-1 mb-6">
+                        <span class="text-4xl font-black text-white">₹700</span>
+                        <span class="text-slate-400 font-medium">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 text-sm text-slate-300">
+                        <li class="flex gap-3"><i class="fa-solid fa-check text-blue-400"></i> 12+ Hours Access</li>
+                        <li class="flex gap-3"><i class="fa-solid fa-check text-blue-400"></i> Personal Locker (Optional)</li>
+                        <li class="flex gap-3"><i class="fa-solid fa-check text-blue-400"></i> Uninterrupted Power</li>
+                        <li class="flex gap-3"><i class="fa-solid fa-check text-blue-400"></i> Priority Support</li>
+                    </ul>
+                    <button onclick="toggleModal('registerModal')" class="block w-full text-center bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition">Book Slot</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-white border-t border-slate-200 pt-16 pb-8 px-4">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 mb-12">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <img src="logo.png" alt="Safal Library Logo" class="w-8 h-8 rounded-full shadow border-2 border-white object-cover bg-white">
+                    <span class="text-lg font-black text-slate-800">SAFAL LIBRARY</span>
+                </div>
+                <p class="text-slate-500 text-sm leading-relaxed">
+                    Empowering students of Bansdih with a world-class study environment to achieve their dreams.
+                </p>
+            </div>
+            
+            <div>
+                <h4 class="font-bold text-slate-800 mb-4">Contact Us</h4>
+                <ul class="space-y-3 text-sm text-slate-500">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-location-dot mt-1 text-blue-600"></i>
+                        <span>Near BSNL Office, Bansdih,<br>Uttar Pradesh, India</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-phone text-blue-600"></i>
+                        <span>+91 9305506411</span>
+                    </li>
+                     <li class="flex items-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-green-500"></i>
+                        <span>+91 9580983727</span>
+                    </li>
+                </ul>
+                <button onclick="toggleModal('registerModal')" class="mt-6 w-full text-center bg-slate-100 text-slate-800 py-2 rounded-lg font-bold text-sm hover:bg-slate-200 transition border border-slate-200">
+                    <i class="fa-solid fa-headset mr-2"></i> Request a Callback
+                </button>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-slate-800 mb-4">Opening Hours</h4>
+                <ul class="space-y-2 text-sm text-slate-500">
+                    <li class="flex justify-between border-b border-slate-100 pb-2">
+                        <span>Monday - Saturday</span>
+                        <span class="font-bold text-slate-700">7:00 AM - 7:00 PM</span>
+                    </li>
+                    <li class="flex justify-between border-b border-slate-100 pb-2">
+                        <span>Sunday</span>
+                        <span class="font-bold text-slate-700">8:00 AM - 6:00 PM</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto mb-10 h-72 rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3589.8817238582596!2d84.22419617485961!3d25.873369903982805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39926110b7171291%3A0x8bacec6c37b956c0!2sSafal%20Library!5e0!3m2!1sen!2sin!4v1775909128995!5m2!1sen!2sin" 
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        
+        <div class="text-center pt-8 border-t border-slate-100 text-xs text-slate-400">
+            © 2026 Safal Library. All rights reserved. <br> Designed with ❤️ for Students.
+        </div>
+    </footer>
+
+    <!-- UPDATED: Direct Registration Modal -->
+    <div id="registerModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden relative">
+            <div class="bg-blue-600 p-6 text-white flex justify-between items-center">
+                <div>
+                    <h2 class="text-xl font-bold">Register / Message</h2>
+                    <p class="text-blue-200 text-sm mt-1">Fill the details, we'll get back to you!</p>
+                </div>
+                <button onclick="toggleModal('registerModal')" class="text-blue-200 hover:text-white transition">
+                    <i class="fa-solid fa-xmark text-2xl"></i>
+                </button>
+            </div>
+            
+            <form id="contactForm" class="p-6 space-y-4">
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-1">Full Name</label>
+                    <input type="text" id="userName" placeholder="E.g. Aditya Kumar" class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition" required>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-1">Mobile Number</label>
+                    <input type="tel" id="userPhone" placeholder="e.g. 9876543210" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition" required>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-1">Address</label>
+                    <input type="text" id="userAddress" placeholder="Your local address" class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition" required>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-1">Message / Query</label>
+                    <textarea rows="3" id="userMessage" placeholder="I want to join the morning shift..." class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition" required></textarea>
+                </div>
+                <button type="submit" id="submitBtn" class="w-full bg-slate-900 text-white font-bold py-3 rounded-lg hover:bg-slate-800 transition shadow-lg mt-2 flex justify-center items-center gap-2">
+                    Submit Registration
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyDRIberc1UGjTWKsxbrw-1PRwcBdDdPxf0",
+            authDomain: "website-7d1b5.firebaseapp.com",
+            projectId: "website-7d1b5",
+            storageBucket: "website-7d1b5.firebasestorage.app",
+            messagingSenderId: "923002231019",
+            appId: "1:923002231019:web:a9764a78d87b8b330a06ae"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Modal Toggle
+        function toggleModal(id) {
+            document.getElementById(id).classList.toggle('hidden');
+        }
+
+        // Form Submission - Direct to inquiries collection
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('submitBtn');
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
+            btn.disabled = true;
+
+            const name = document.getElementById('userName').value;
+            const phone = document.getElementById('userPhone').value;
+            const address = document.getElementById('userAddress').value;
+            const message = document.getElementById('userMessage').value;
+
+            // Save data directly to the inquiries collection
+            db.collection("inquiries").add({
+                name: name,
+                phone: phone,
+                address: address,
+                message: message,
+                status: "unread",
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            })
+            .then(() => {
+                alert("Success! Your registration details have been sent to Safal Library.");
+                
+                // Reset form and close modal
+                document.getElementById('contactForm').reset();
+                toggleModal('registerModal');
+                
+                // Reset button state
+                btn.innerHTML = 'Submit Registration';
+                btn.disabled = false;
+            })
+            .catch((error) => {
+                console.error("Error writing document: ", error);
+                alert("Something went wrong saving your details. Please try again.");
+                btn.innerHTML = 'Submit Registration';
+                btn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
